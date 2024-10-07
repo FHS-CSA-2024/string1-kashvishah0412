@@ -31,6 +31,7 @@ public class String1
 
     //ONLY EDIT BELOW HERE-------------------------------------------------------------------------
 
+    //I cant compile and test this code with all the extra classes in side this class. They should just be methods.
   public class ExtraEnd {
 
     public static void main(String[] args) {
