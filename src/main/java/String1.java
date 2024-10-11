@@ -87,8 +87,7 @@ public class String1
      * extraEnd("Hi") → "HiHiHi"
      */
     public String extraEnd(String str) {
-        String lastTwo = str.substring(str.length()-2);
-        return lastTwo + lastTwo + lastTwo;
+        return str.substring(str.length()-2) + str.substring(str.length()-2) + str.substring(str.length()-2);
     }
 
     /*
@@ -154,8 +153,8 @@ public class String1
      * middleThree("solving") → "lvi"
      */
     public String middleThree(String str) {
-        int mid = str.length()/2;
-        return str.substring(mid-1, mid+2);
+        double middle = str.length()/2 + 0.5;
+        return str.substring(middle-1, middle+2);
     }
 
     /*
@@ -170,10 +169,9 @@ public class String1
             return str + str +str;
         }
         else{
-        String firstTwo = str.substring(0,2);
-        return firstTwo + firstTwo + firstTwo;
+        return str.substring(0,2) + str.substring(0,2) + str.substring(0,2);
     }
-
+        
     /*
      * Given a string, return a "rotated left 2" version where the first 2 chars are moved to the end. 
      * The string length will be at least 2.
@@ -245,16 +243,15 @@ public class String1
      * withoutX("Hxix") → "Hxi"
      */
     public String withoutX(String str) {
-        if (str.length() == 0){
-            return str;
-        }
         if (str.startsWith("x")) {
             str = str.substring(1);
         }
-        if (str.endsWith("x)) {
+        else if (str.endsWith("x)) {
             str = str.substring(0, str.length()-1);
         }
-        return unimplemented;
+        else {
+            return str;
+        }
     }
 
     /*
