@@ -31,6 +31,9 @@ public class String1
 
     //ONLY EDIT BELOW HERE-------------------------------------------------------------------------
 
+
+
+
     /*
      * Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
      *  helloName("Bob") --> "Hello Bob!"
@@ -106,6 +109,8 @@ public class String1
         else {
         return str.substring(0,2);
     }
+}
+
 
     /*
      * Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".]
@@ -171,6 +176,7 @@ public class String1
         else{
         return str.substring(0,2) + str.substring(0,2) + str.substring(0,2);
     }
+}
         
     /*
      * Given a string, return a "rotated left 2" version where the first 2 chars are moved to the end. 
@@ -246,7 +252,7 @@ public class String1
         if (str.startsWith("x")) {
             str = str.substring(1);
         }
-        else if (str.endsWith("x)) {
+        else if (str.endsWith("x")) {
             str = str.substring(0, str.length()-1);
         }
         else {
