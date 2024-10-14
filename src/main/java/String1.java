@@ -250,7 +250,10 @@ public class String1
      * withoutX("Hxix") --> "Hxi"
      */
     public String withoutX(String str) {
-        if (str.startsWith("x")) {
+        if (str.startsWith("x") && str.endsWith("x")) {
+            str= str.substring(1,str.length()-1);
+        }
+        else if (str.startsWith("x")) {
             str = str.substring(1);
         }
         else if (str.endsWith("x")) {
