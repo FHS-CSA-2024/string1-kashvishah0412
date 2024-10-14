@@ -1,138 +1,287 @@
-package src.test.java;
-import src.main.java.*;
+package src.main.java;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-/**
- * The test class String1Test. Dont edit or it will mess up your grade :)
- *
- * @author Mr. Johnson
- * @version 8/12/24 v1 (a version number or a date)
- */
-public class TestString1
+public class String1
 {
-    private String1 testStrings = new String1();
+    private String unimplemented = "UNIMPLEMENTED CODE";
 
-    @Test
-    public void helloNameTest(){
-        assertEquals("Hello Bob!", testStrings.helloName("Bob"));
-        assertEquals("Hello Alice!", testStrings.helloName("Alice"));
-        assertEquals("Hello X!", testStrings.helloName("X"));
+    public static void main(String[] args){
+        String1 s = new String1();
+        System.out.println(s.helloName("Bob"));
+        System.out.println(s.makeAbba("Hi", "Bye"));
+        System.out.println(s.makeTags("i", "Yay"));
+        System.out.println(s.makeOutWord("<<>>", "Yay"));
+        System.out.println(s.extraEnd("Hello"));
+        System.out.println(s.firstTwo("Hello"));
+        System.out.println(s.withoutEnd("Hello"));
+        System.out.println(s.comboString("hi", "Hello"));
+        System.out.println(s.middleThree("Candy"));
+        System.out.println(s.extraFront("Hello"));
+        System.out.println(s.left2("Hello"));
+        System.out.println(s.hasBad("badxx"));
+        System.out.println(s.conCat("abc", "cat"));
+        System.out.println(s.minCat("Hello", "Hi"));
+        System.out.println(s.withoutX("xHix"));
+        System.out.println(s.deFront("Hello"));
     }
 
-    @Test
-    public void makeAbbaTest(){
-        assertEquals("HiByeByeHi", testStrings.makeAbba("Hi", "Bye"));
-        assertEquals("YoAliceAliceYo", testStrings.makeAbba("Yo", "Alice"));
-        assertEquals("WhatUpUpWhat", testStrings.makeAbba("What", "Up"));
+    public String1()
+    {
 
     }
 
-    @Test
-    public void makeTagsTest(){
-        assertEquals("<i>Yay</i>", testStrings.makeTags("i", "Yay"));
-        assertEquals("<i>Hello</i>", testStrings.makeTags("i", "Hello"));
-        assertEquals("<cite>Yay</cite>", testStrings.makeTags("cite", "Yay"));
+    //ONLY EDIT BELOW HERE-------------------------------------------------------------------------
+
+
+
+
+    /*
+     * Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
+     *  helloName("Bob") --> "Hello Bob!"
+     *  helloName("Alice") --> "Hello Alice!"
+     *  helloName("X") --> "Hello X!"
+     */
+    public String helloName(String name) {
+        //return unimplemented;
+        return "Hello " + name + "!";
     }
 
-    @Test
-    public void makeOutWordTest(){
-        assertEquals("<<Yay>>", testStrings.makeOutWord("<<>>", "Yay"));
-        assertEquals("<<WooHoo>>", testStrings.makeOutWord("<<>>", "WooHoo"));
-        assertEquals("[[word]]", testStrings.makeOutWord("[[]]", "word"));
+    /*
+     * Given two strings, a and b, return the result of putting them together in the order abba, 
+     * e.g. "Hi" and "Bye" returns "HiByeByeHi".
+     * makeAbba("Hi", "Bye") --> "HiByeByeHi"
+     * makeAbba("Yo", "Alice") --> "YoAliceAliceYo"
+     * makeAbba("What", "Up") --> "WhatUpUpWhat"
+     */
+    public String makeAbba(String a, String b) {
+        return a+b+b+a;
     }
 
-    @Test
-    public void extraEndTest(){
-        assertEquals("lololo", testStrings.extraEnd("Hello"));
-        assertEquals("ababab", testStrings.extraEnd("ab"));
-        assertEquals("HiHiHi", testStrings.extraEnd("Hi"));
+    /*
+     * The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. 
+     * In this example, the "i" tag makes <i> and </i> which surround the word "Yay". 
+     * Given tag and word strings, create the HTML string with tags around the word, e.g. "<i>Yay</i>".
+     * makeTags("i", "Yay") --> "<i>Yay</i>"
+     * makeTags("i", "Hello") --> "<i>Hello</i>"
+     * makeTags("cite", "Yay") --> "<cite>Yay</cite>"
+     */
+    public String makeTags(String tag, String word) {
+        return "<" + tag + ">" + word + "<" + "/" + tag + ">";
     }
 
-    @Test
-    public void firstTwoTest(){
-        assertEquals("He", testStrings.firstTwo("Hello"));
-        assertEquals("ab", testStrings.firstTwo("abcdefg"));
-        assertEquals("ab", testStrings.firstTwo("ab"));
+    /*
+     * Given an "out" string length 4, such as "<<>>", and a word, 
+     *      return a new string where the word is in the middle of the out string, 
+     *      e.g. "<<word>>". 
+     * Note: use str.substring(i, j) to extract the String starting at index i and going up to but 
+     * not including index j.
+     * makeOutWord("<<>>", "Yay") --> "<<Yay>>"
+     * makeOutWord("<<>>", "WooHoo") --> "<<WooHoo>>"
+     * makeOutWord("[[]]", "word") --> "[[word]]"
+     */
+    public String makeOutWord(String out, String word) {
+        return out.substring(0,2) + word + out.substring(2);
     }
 
-    @Test
-    public void firstHalfTest(){
-        assertEquals("Woo", testStrings.firstHalf("WooHoo"));
-        assertEquals("Hello", testStrings.firstHalf("HelloThere"));
-        assertEquals("abc", testStrings.firstHalf("abcdef"));
+    /*
+     * Given a string, return a new string made of 3 copies of the last 2 chars of the original string. 
+     * The string length will be at least 2.
+     * extraEnd("Hello") --> "lololo"
+     * extraEnd("ab") --> "ababab"
+     * extraEnd("Hi") --> "HiHiHi"
+     */
+    public String extraEnd(String str) {
+        return str.substring(str.length()-2) + str.substring(str.length()-2) + str.substring(str.length()-2);
     }
 
-    @Test
-    public void withoutEndTest(){
-        assertEquals("ell", testStrings.withoutEnd("Hello"));
-        assertEquals("av", testStrings.withoutEnd("java"));
-        assertEquals("odin", testStrings.withoutEnd("coding"));
+    /*
+     * Given a string, return the string made of its first two chars, so the String "Hello" yields "He". 
+     * If the string is shorter than length 2, return whatever there is, 
+     * so "X" yields "X", and the empty string "" yields the empty string "". 
+     * Note that str.length() returns the length of a string.
+     * firstTwo("Hello") --> "He"
+     * firstTwo("abcdefg") --> "ab"
+     * firstTwo("ab") --> "ab"
+     */
+    public String firstTwo(String str) {
+        if (str.length()<2) {
+            return str;
+        }
+        else {
+        return str.substring(0,2);
+    }
+}
+
+
+    /*
+     * Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".]
+     * firstHalf("WooHoo") --> "Woo"
+     * firstHalf("HelloThere") --> "Hello"
+     * firstHalf("abcdef") --> "abc"
+     */
+    public String firstHalf(String str) {
+        return str.substring(0,str.length()/2);
     }
 
-    @Test
-    public void comboStringTest(){
-        assertEquals("hiHellohi", testStrings.comboString("hi", "Hello"));
-        assertEquals("hiHellohi", testStrings.comboString("Hello", "hi"));
-        assertEquals("baaab", testStrings.comboString("aaa", "b"));
+    /*
+     * Given a string, return a version without the first and last char, so "Hello" yields "ell". 
+     * The string length will be at least 2.
+     * withoutEnd("Hello") --> "ell"
+     * withoutEnd("java") --> "av"
+     * withoutEnd("coding") --> "odin"
+     */
+    public String withoutEnd(String str) {
+        return str.substring(1,str.length()-1);
     }
 
-    @Test
-    public void middleThreeTest(){
-        assertEquals("and", testStrings.middleThree("Candy"));
-        assertEquals("and", testStrings.middleThree("and"));
-        assertEquals("lvi", testStrings.middleThree("solving"));
+    /*
+     * Given 2 strings, a and b, return a string of the form short+long+short, with the 
+     * shorter string on the outside and the longer string on the inside. 
+     * The strings will not be the same length, but they may be empty (length 0).
+     * comboString("hi", "Hello") --> "hiHellohi"
+     * comboString("Hello", "hi") --> "hiHellohi"
+     * comboString("aaa", "b") --> "baaab"
+     */
+    public String comboString(String a, String b) {
+        if (a.length()<b.length()) {
+            return a+b+a;
+        }
+        else {
+        return b+a+b;
+        }
     }
 
-    @Test
-    public void extraFrontTest(){
-        assertEquals("HeHeHe", testStrings.extraFront("Hello"));
-        assertEquals("ababab", testStrings.extraFront("ab"));
-        assertEquals("HHH", testStrings.extraFront("H"));
+    /*
+     * Given a string of odd length, return the string length 3 from its middle, so "Candy" yields "and". 
+     * The string length will be at least 3.
+     * middleThree("Candy") --> "and"
+     * middleThree("and") --> "and"
+     * middleThree("solving") --> "lvi"
+     */
+    public String middleThree(String str) {
+        int middle = str.length()/2;
+        return str.substring(middle-1, middle+2);
     }
 
-    @Test
-    public void left2Test(){
-        assertEquals("lloHe", testStrings.left2("Hello"));
-        assertEquals("vaja", testStrings.left2("java"));
-        assertEquals("Hi", testStrings.left2("Hi"));
+    /*
+     * Given a string, return a new string made of 3 copies of the first 2 chars of the original string. 
+     * The string may be any length. If there are fewer than 2 chars, use whatever is there.
+     * extraFront("Hello") --> "HeHeHe"
+     * extraFront("ab") --> "ababab"
+     * extraFront("H") --> "HHH"
+     */
+    public String extraFront(String str) {
+        if (str.length()<2) {
+            return str + str +str;
+        }
+        else{
+        return str.substring(0,2) + str.substring(0,2) + str.substring(0,2);
+    }
+}
+        
+    /*
+     * Given a string, return a "rotated left 2" version where the first 2 chars are moved to the end. 
+     * The string length will be at least 2.
+     * left2("Hello") --> "lloHe"
+     * left2("java") --> "vaja"
+     * left2("Hi") --> "Hi"
+     */
+    public String left2(String str) {
+        return str.substring(2) + str.substring(0,2);
     }
 
-    @Test
-    public void hasBadTest(){
-        assertEquals(true, testStrings.hasBad("badxx"));
-        assertEquals(true, testStrings.hasBad("xbadxx"));
-        assertEquals(false , testStrings.hasBad("xxbadxx"));
+    /*
+     * Given a string, return true if "bad" appears starting at index 0 or 1 in the string, 
+     * such as with "badxxx" or "xbadxx" but not "xxbadxx". The string may be any length, including 0. 
+     * Note: use .equals() to compare 2 strings.
+     * hasBad("badxx") --> true
+     * hasBad("xbadxx") --> true
+     * hasBad("xxbadxx") --> false
+     */
+    public boolean hasBad(String str) {
+        if (str.length() >= 3 && str.substring(0,3).equals("bad")){
+            return true;
+        }
+        else if (str.length() >= 4 && str.substring(1,4).equals("bad")) {
+            return true;
+        }
+        else {
+        return false;
+        }
     }
 
-    @Test
-    public void conCatTest(){
-        assertEquals("abcat", testStrings.conCat("abc", "cat"));
-        assertEquals("dogcat", testStrings.conCat("dog", "cat"));
-        assertEquals("abc", testStrings.conCat("abc", ""));
+    /*
+     * Given two strings, append them together (known as "concatenation") and return the result. 
+     * However, if the concatenation creates a double-char, then omit one of the chars, 
+     *     so "abc" and "cat" yields "abcat".
+     * conCat("abc", "cat") --> "abcat"
+     * conCat("dog", "cat") --> "dogcat"
+     * conCat("abc", "") --> "abc"
+     */
+    public String conCat(String a, String b) {
+        if (a.length() > 0 && b.length() > 0 && a.charAt(a.length()-1) == b.charAt(0)) {
+            return a+b.substring(1);
+        }
+        else {
+        return a + b;
+        }
     }
 
-    @Test
-    public void minCatTest(){
-        assertEquals("loHi", testStrings.minCat("Hello", "Hi"));
-        assertEquals("ellojava", testStrings.minCat("Hello", "java"));
-        assertEquals("javaello", testStrings.minCat("java", "Hello"));
+    /*
+     *Given two strings, append them together (known as "concatenation") and return the result. 
+     *However, if the strings are different lengths, omit chars from the longer string 
+     *    so it is the same length as the shorter string. 
+     *So "Hello" and "Hi" yield "loHi". 
+     *The strings may be any length.
+     *minCat("Hello", "Hi") --> "loHi"
+     *minCat("Hello", "java") --> "ellojava"
+     *minCat("java", "Hello") --> "javaello"
+     */
+    public String minCat(String a, String b) {
+        int minLength = Math.min(a.length(), b.length());
+        return a.substring(a.length()-minLength) + b.substring(b.length()-minLength);
     }
 
-    @Test
-    public void withoutXTest(){
-        assertEquals("Hi", testStrings.withoutX("xHix"));
-        assertEquals("Hi", testStrings.withoutX("xHi"));
-        assertEquals("Hxi", testStrings.withoutX("Hxix"));
+    /*
+     * Given a string, if the first or last chars are 'x', return the string without those 'x' chars, 
+     * and otherwise return the string unchanged.
+     * withoutX("xHix") --> "Hi"
+     * withoutX("xHi") --> "Hi"
+     * withoutX("Hxix") --> "Hxi"
+     */
+    public String withoutX(String str) {
+        if (str.startsWith("x")) {
+            str = str.substring(1);
+        }
+        else if (str.endsWith("x")) {
+            str = str.substring(0, str.length()-1);
+        }
+        else {
+            str = str;
+        }
+        return str;
     }
 
-    @Test
-    public void deFrontTest(){
-        assertEquals("llo", testStrings.deFront("Hello"));
-        assertEquals("va", testStrings.deFront("java"));
-        assertEquals("aay", testStrings.deFront("away"));
+    /*
+     * Given a string, return a version without the first 2 chars. 
+     * Except keep the first char if it is 'a' and keep the second char if it is 'b'. 
+     * The string may be any length. 
+     * Harder than it looks.
+     * deFront("Hello") --> "llo"
+     * deFront("java") --> "va"
+     * deFront("away") --> "aay"
+     */
+    public String deFront(String str) { 
+        String result = "";
+        if (str.length()>0 && str.charAt(0) == 'a') {
+            result += "a";
+        }
+        if (str.length()>1 && str.charAt(1) == 'b') {
+            result += "b";
+        }
+        if (str.length()>2) {
+            result+= str.substring(2);
+        }
+        return result;
     }
+
 }
