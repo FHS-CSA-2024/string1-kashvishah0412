@@ -212,7 +212,7 @@ public class String1
     /*
      * Given two strings, append them together (known as "concatenation") and return the result. 
      * However, if the concatenation creates a double-char, then omit one of the chars, 
-     * 	so "abc" and "cat" yields "abcat".
+     *     so "abc" and "cat" yields "abcat".
      * conCat("abc", "cat") --> "abcat"
      * conCat("dog", "cat") --> "dogcat"
      * conCat("abc", "") --> "abc"
@@ -229,7 +229,7 @@ public class String1
     /*
      *Given two strings, append them together (known as "concatenation") and return the result. 
      *However, if the strings are different lengths, omit chars from the longer string 
-     *	so it is the same length as the shorter string. 
+     *    so it is the same length as the shorter string. 
      *So "Hello" and "Hi" yield "loHi". 
      *The strings may be any length.
      *minCat("Hello", "Hi") --> "loHi"
@@ -256,8 +256,9 @@ public class String1
             str = str.substring(0, str.length()-1);
         }
         else {
-            return str;
+            str = str;
         }
+        return str;
     }
 
     /*
