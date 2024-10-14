@@ -158,7 +158,7 @@ public class String1
      * middleThree("solving") --> "lvi"
      */
     public String middleThree(String str) {
-        double middle = str.length()/2 + 0.5;
+        int middle = str.length()/2;
         return str.substring(middle-1, middle+2);
     }
 
